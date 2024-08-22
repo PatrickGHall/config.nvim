@@ -31,68 +31,7 @@ return {
 			local lspconfig = require("lspconfig")
 
 			local servers = {
-				bashls = true,
-				gopls = {
-					settings = {
-						gopls = {
-							hints = {
-								assignVariableTypes = true,
-								compositeLiteralFields = true,
-								compositeLiteralTypes = true,
-								constantValues = true,
-								functionTypeParameters = true,
-								parameterNames = true,
-								rangeVariableTypes = true,
-							},
-						},
-					},
-				},
 				lua_ls = true,
-				rust_analyzer = true,
-				svelte = true,
-				templ = true,
-				cssls = true,
-
-				-- Probably want to disable formatting for this lang server
-				tsserver = true,
-
-				jsonls = {
-					settings = {
-						json = {
-							schemas = require("schemastore").json.schemas(),
-							validate = { enable = true },
-						},
-					},
-				},
-
-				yamlls = {
-					settings = {
-						yaml = {
-							schemaStore = {
-								enable = false,
-								url = "",
-							},
-							schemas = require("schemastore").yaml.schemas(),
-						},
-					},
-				},
-
-				ocamllsp = {
-					manual_install = true,
-					settings = {
-						codelens = { enable = true },
-						inlayHints = { enable = true },
-					},
-
-					filetypes = {
-						"ocaml",
-						"ocaml.interface",
-						"ocaml.menhir",
-						"ocaml.cram",
-					},
-
-					-- TODO: Check if i still need the filtypes stuff i had before
-				},
 
 				lexical = {
 					cmd = { "/home/tjdevries/.local/share/nvim/mason/bin/lexical", "server" },
@@ -120,8 +59,6 @@ return {
 			local ensure_installed = {
 				"stylua",
 				"lua_ls",
-				"delve",
-				-- "tailwind-language-server",
 			}
 
 			vim.list_extend(ensure_installed, servers_to_install)
